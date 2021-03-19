@@ -7,4 +7,5 @@ package pl.dkiszka.rentalapplication.domain.hotelroom;
  */
 public interface HotelRoomRepository {
     HotelRoom save(HotelRoom hotelRoom);
+    HotelRoom findByUuid(String uuid);
 }

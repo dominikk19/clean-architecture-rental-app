@@ -5,6 +5,8 @@ import org.springframework.data.repository.Repository;
 import pl.dkiszka.rentalapplication.domain.apartment.Apartment;
 import pl.dkiszka.rentalapplication.domain.apartment.ApartmentRepository;
 
+import java.util.Optional;
+
 /**
  * @author Dominik Kiszka {dominikk19}
  * @project clean-architecture-rental-app
@@ -18,9 +20,17 @@ class JpaApartmentRepository implements ApartmentRepository {
     public Apartment save(Apartment apartment) {
         return springJpaApartmentRepository.save(apartment);
     }
+
+    @Override
+    public Apartment findByUuid(String uuid) {
+        return springJpaApartmentRepository.findByUuid(uuid)
+                .orElseThrow(() -> new ApartmentNotFoundException(String.format("Apartment uuid: %s not exist", uuid)));
+    }
 }
 
-interface SpringJpaApartmentRepository extends Repository<Apartment, Long> {
+interface SpringJpaApartmentRepository extends Repository<Apartment, String> {
     Apartment save(Apartment apartment);
+
+    Optional<Apartment> findByUuid(String uuid);
 }
 

@@ -5,8 +5,6 @@ package pl.dkiszka.rentalapplication.domain.apartment;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
-public interface ApartmentRepository {
-    Apartment save(Apartment apartment);
-
-    Apartment findByUuid(String uuid);
+public interface BookingRepository {
+    Booking save(Booking booking);
 }

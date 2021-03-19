@@ -1,7 +1,6 @@
 package pl.dkiszka.rentalapplication.domain.hotel;
 
 import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.Embedded;
@@ -21,7 +20,7 @@ public class Hotel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     private String uuid;
     private final String name;
 

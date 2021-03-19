@@ -2,12 +2,15 @@ package pl.dkiszka.rentalapplication.domain.hotelroom;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
+import pl.dkiszka.rentalapplication.domain.apartment.Booking;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -20,7 +23,7 @@ import java.util.List;
 public class HotelRoom {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     private String uuid;
     private final String hotelId;
     private final int number;
@@ -29,4 +32,11 @@ public class HotelRoom {
     private final List<Space> spaces;
 
     private final String description;
+
+    public Booking book(String tenantId, List<LocalDate> days, DomainEventChannel eventChannel) {
+        var hotelRoomBooked = HotelRoomBooked.create(id, hotelId, tenantId, days);
+        eventChannel.publish(hotelRoomBooked);
+
+        return Booking.hotelRoom(id, tenantId, days);
+    }
 }

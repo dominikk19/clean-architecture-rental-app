@@ -1,7 +1,9 @@
 package pl.dkiszka.rentalapplication.adapters.rest.api.hotelroom;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,5 +25,10 @@ class HotelRoomRestController {
     void add(@RequestBody HotelRoomDto hotelRoomDto) {
         hotelRoomAppService.add(
                 hotelRoomDto.getHotelId(), hotelRoomDto.getNumber(), hotelRoomDto.getSpacesDefinition(), hotelRoomDto.getDescription());
+    }
+
+    @PutMapping("/book/{uuid}")
+    public void book(@PathVariable String uuid, @RequestBody HotelBookingDto hotelBookingDto) {
+        hotelRoomAppService.book(uuid, hotelBookingDto.getTenantId(), hotelBookingDto.getDays());
     }
 }

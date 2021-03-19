@@ -2,6 +2,7 @@ package pl.dkiszka.rentalapplication.domain.apartment;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -22,7 +23,7 @@ public class Apartment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     private final String uuid;
     private final String ownerId;
 
@@ -32,4 +33,11 @@ public class Apartment {
     @OneToMany
     private final List<Room> rooms;
     private final String description;
+
+    public Booking book(String tenantId, Period period, DomainEventChannel eventChannel) {
+        ApartmentBooked apartmentBooked = ApartmentBooked.create(id, ownerId, tenantId, period);
+        eventChannel.publish(apartmentBooked);
+
+        return Booking.apartment(id, tenantId, period);
+    }
 }

@@ -5,6 +5,8 @@ import org.springframework.data.repository.Repository;
 import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoom;
 import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoomRepository;
 
+import java.util.Optional;
+
 /**
  * @author Dominik Kiszka {dominikk19}
  * @project clean-architecture-rental-app
@@ -19,8 +21,15 @@ class JpaHotelRoomRepository implements HotelRoomRepository {
     public HotelRoom save(HotelRoom hotelRoom) {
         return springJpaHotelRoomRepository.save(hotelRoom);
     }
+
+    @Override
+    public HotelRoom findByUuid(String uuid) {
+        return springJpaHotelRoomRepository.findByUuid(uuid)
+                .orElseThrow(()->new HotelRoomNotFoundException(String.format("Hotel room by uuid: %s not exists", uuid)));
+    }
 }
 
-interface SpringJpaHotelRoomRepository extends Repository<HotelRoom, Long> {
+interface SpringJpaHotelRoomRepository extends Repository<HotelRoom, String> {
     HotelRoom save(HotelRoom hotelRoom);
+    Optional<HotelRoom> findByUuid(String uuid);
 }

@@ -21,6 +21,6 @@ class JpaHotelRepository implements HotelRepository {
     }
 }
 
-interface SpringJpaHotelRepository extends Repository<Hotel, Long> {
+interface SpringJpaHotelRepository extends Repository<Hotel, String> {
     Hotel save(Hotel hotel);
 }

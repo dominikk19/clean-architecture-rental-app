@@ -1,7 +1,7 @@
 package pl.dkiszka.rentalapplication.domain.apartment;
 
 import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Embeddable;
 
@@ -11,12 +11,21 @@ import javax.persistence.Embeddable;
  * @date 19.03.2021
  */
 @Embeddable
-@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 class Address {
-    private final String street;
-    private final String postalCode;
-    private final String houseNumber;
-    private final String apartmentNumber;
-    private final String city;
-    private final String country;
+    private String street;
+    private String postalCode;
+    private String houseNumber;
+    private String apartmentNumber;
+    private String city;
+    private String country;
+
+    Address(String street, String postalCode, String houseNumber, String apartmentNumber, String city, String country) {
+        this.street = street;
+        this.postalCode = postalCode;
+        this.houseNumber = houseNumber;
+        this.apartmentNumber = apartmentNumber;
+        this.city = city;
+        this.country = country;
+    }
 }

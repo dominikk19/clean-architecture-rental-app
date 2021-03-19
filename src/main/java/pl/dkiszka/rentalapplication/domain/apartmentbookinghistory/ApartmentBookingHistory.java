@@ -3,6 +3,10 @@ package pl.dkiszka.rentalapplication.domain.apartmentbookinghistory;
 import com.google.common.collect.Lists;
 import lombok.RequiredArgsConstructor;
 
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.List;
 
 /**
@@ -10,11 +14,19 @@ import java.util.List;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
+@Entity
+@Table(name = "APARTMENT_BOOKING_HISTORY")
 @RequiredArgsConstructor
 public class ApartmentBookingHistory {
+    @Id
+    private String apartmentId;
 
-    private final String apartmentId;
+    @ElementCollection
     private final List<ApartmentBooking> bookings = Lists.newArrayList();
+
+    public ApartmentBookingHistory(String apartmentId) {
+        this.apartmentId = apartmentId;
+    }
 
     public void add(ApartmentBooking apartmentBooking) {
         bookings.add(apartmentBooking);

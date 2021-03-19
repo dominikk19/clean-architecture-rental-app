@@ -1,7 +1,7 @@
 package pl.dkiszka.rentalapplication.domain.hotelroom;
 
 import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Embeddable;
 
@@ -11,7 +11,11 @@ import javax.persistence.Embeddable;
  * @date 19.03.2021
  */
 @Embeddable
-@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 class SquareMeter {
-    private final Double value;
+    private Double value;
+
+    SquareMeter(Double value) {
+        this.value = value;
+    }
 }

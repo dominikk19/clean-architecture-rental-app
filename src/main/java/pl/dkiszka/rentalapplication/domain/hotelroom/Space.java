@@ -1,6 +1,7 @@
 package pl.dkiszka.rentalapplication.domain.hotelroom;
 
 import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.Embedded;
@@ -12,10 +13,15 @@ import javax.persistence.Entity;
  * @date 19.03.2021
  */
 @Entity
-@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 class Space {
-    private final String name;
+    private String name;
 
     @Embedded
-    private final SquareMeter squareMeter;
+    private SquareMeter squareMeter;
+
+    Space(String name, SquareMeter squareMeter) {
+        this.name = name;
+        this.squareMeter = squareMeter;
+    }
 }

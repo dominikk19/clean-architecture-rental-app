@@ -1,8 +1,12 @@
 package pl.dkiszka.rentalapplication.domain.hotelbookinghistory;
 
 import com.google.common.collect.Lists;
-import lombok.RequiredArgsConstructor;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -12,11 +16,18 @@ import java.util.List;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
-@RequiredArgsConstructor
+@Entity
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class HotelBookingHistory {
+    @Id
+    private String hotelId;
 
-    private final String hotelId;
-    private final List<HotelRoomBookingHistory> hotelRoomBookingHistories = Lists.newArrayList();
+    @OneToMany
+    private List<HotelRoomBookingHistory> hotelRoomBookingHistories = Lists.newArrayList();
+
+    public HotelBookingHistory(String hotelId) {
+        this.hotelId = hotelId;
+    }
 
     public void add(String hotelRoomId, LocalDateTime bookingDateTime, String tenantId, List<LocalDate> days) {
         HotelRoomBookingHistory hotelRoomBookingHistory = findFor(hotelRoomId);

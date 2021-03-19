@@ -1,9 +1,13 @@
 package pl.dkiszka.rentalapplication.domain.booking;
 
-import lombok.RequiredArgsConstructor;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,7 +21,7 @@ import java.util.UUID;
  * @date 19.03.2021
  */
 @Entity
-@RequiredArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Booking {
 
     public static Booking apartment(String rentalPlaceId, String tenantId, Period period) {
@@ -31,13 +35,27 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
-    private final String uuid;
-    private final RentalType rentalType;
-    private final String rentalPlaceId;
-    private final String tenantId;
-    private final List<LocalDate> days;
+    private String uuid;
+
+    @Enumerated(EnumType.STRING)
+    private RentalType rentalType;
+    private String rentalPlaceId;
+    private String tenantId;
+
+    @ElementCollection
+    private List<LocalDate> days;
+
+    @Enumerated(EnumType.STRING)
     private BookingStatus bookingStatus = BookingStatus.OPEN;
 
+
+    private Booking(String uuid, RentalType rentalType, String rentalPlaceId, String tenantId, List<LocalDate> days) {
+        this.uuid = uuid;
+        this.rentalType = rentalType;
+        this.rentalPlaceId = rentalPlaceId;
+        this.tenantId = tenantId;
+        this.days = days;
+    }
 
     public void reject() {
         bookingStatus = BookingStatus.REJECTED;

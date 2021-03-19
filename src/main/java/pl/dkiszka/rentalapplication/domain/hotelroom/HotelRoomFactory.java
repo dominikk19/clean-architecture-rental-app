@@ -1,6 +1,7 @@
 package pl.dkiszka.rentalapplication.domain.hotelroom;
 
 import java.util.Map;
+import java.util.UUID;
 
 import static java.util.stream.Collectors.toList;
 
@@ -17,6 +18,6 @@ public class HotelRoomFactory {
                     return new Space(entry.getKey(), squareMeter);
                 })
                 .collect(toList());
-        return new HotelRoom(hotelId, number, spaces, description);
+        return new HotelRoom(UUID.randomUUID().toString(), hotelId, number, spaces, description);
     }
 }

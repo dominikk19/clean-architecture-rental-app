@@ -1,7 +1,9 @@
 package pl.dkiszka.rentalapplication.domain.apartmentbookinghistory;
 
-import lombok.RequiredArgsConstructor;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.Embeddable;
 import java.time.LocalDate;
 
 /**
@@ -9,8 +11,14 @@ import java.time.LocalDate;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
-@RequiredArgsConstructor
+@Embeddable
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class BookingPeriod {
-    private final LocalDate periodStart;
-    private final LocalDate periodEnd;
+    private LocalDate periodStart;
+    private LocalDate periodEnd;
+
+    public BookingPeriod(LocalDate periodStart, LocalDate periodEnd) {
+        this.periodStart = periodStart;
+        this.periodEnd = periodEnd;
+    }
 }

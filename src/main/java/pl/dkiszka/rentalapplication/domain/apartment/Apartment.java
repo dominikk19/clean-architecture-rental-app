@@ -1,17 +1,19 @@
 package pl.dkiszka.rentalapplication.domain.apartment;
 
 import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 import pl.dkiszka.rentalapplication.domain.booking.Booking;
 import pl.dkiszka.rentalapplication.domain.booking.Period;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.List;
 
 /**
@@ -20,21 +22,30 @@ import java.util.List;
  * @date 19.03.2021
  */
 @Entity
-@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
+@Table(name = "APARTMENT")
+@@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Apartment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
-    private final String uuid;
-    private final String ownerId;
+    private String uuid;
+    private String ownerId;
 
     @Embedded
-    private final Address address;
+    private Address address;
 
-    @OneToMany
+    @ElementCollection
     private final List<Room> rooms;
-    private final String description;
+    private String description;
+
+    Apartment(String uuid, String ownerId, Address address, List<Room> rooms, String description) {
+        this.uuid = uuid;
+        this.ownerId = ownerId;
+        this.address = address;
+        this.rooms = rooms;
+        this.description = description;
+    }
 
     public Booking book(String tenantId, Period period, DomainEventChannel eventChannel) {
         ApartmentBooked apartmentBooked = ApartmentBooked.create(id, ownerId, tenantId, period);

@@ -1,6 +1,7 @@
 package pl.dkiszka.rentalapplication.domain.apartment;
 
 import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.Embeddable;
@@ -12,6 +13,7 @@ import javax.persistence.Embeddable;
  */
 @Embeddable
 @RequiredArgsConstructor(access = AccessLevel.PACKAGE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 class SquareMeter {
-    private final Double size;
+    private Double size;
 }

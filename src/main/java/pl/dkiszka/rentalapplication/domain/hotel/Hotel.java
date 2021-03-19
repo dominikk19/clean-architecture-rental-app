@@ -1,6 +1,7 @@
 package pl.dkiszka.rentalapplication.domain.hotel;
 
 import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.Embedded;
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author Dominik Kiszka {dominikk19}
@@ -15,15 +17,22 @@ import javax.persistence.Id;
  * @date 19.03.2021
  */
 @Entity
-@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
+@Table(name = "HOTEL")
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Hotel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     private String uuid;
-    private final String name;
+    private String name;
 
     @Embedded
-    private final Address address;
+    private Address address;
+
+    Hotel(String uuid, String name, Address address) {
+        this.uuid = uuid;
+        this.name = name;
+        this.address = address;
+    }
 }

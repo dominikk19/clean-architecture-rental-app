@@ -1,4 +1,4 @@
-package pl.dkiszka.rentalapplication.domain.hotelRoom;
+package pl.dkiszka.rentalapplication.domain.hotelroom;
 
 import java.util.Map;
 

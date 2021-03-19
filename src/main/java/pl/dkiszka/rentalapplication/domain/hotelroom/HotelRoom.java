@@ -23,7 +23,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "HOTEL_ROOM")
-@@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class HotelRoom {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

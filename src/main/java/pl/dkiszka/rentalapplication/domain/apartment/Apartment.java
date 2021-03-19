@@ -23,7 +23,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "APARTMENT")
-@@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Apartment {
 
     @Id
@@ -36,7 +36,7 @@ public class Apartment {
     private Address address;
 
     @ElementCollection
-    private final List<Room> rooms;
+    private List<Room> rooms;
     private String description;
 
     Apartment(String uuid, String ownerId, Address address, List<Room> rooms, String description) {

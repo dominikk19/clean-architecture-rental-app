@@ -1,4 +1,6 @@
-package pl.dkiszka.rentalapplication.domain.apartment;
+package pl.dkiszka.rentalapplication.domain.booking;
+
+import java.util.Optional;
 
 /**
  * @author Dominik Kiszka {dominikk19}
@@ -7,4 +9,5 @@ package pl.dkiszka.rentalapplication.domain.apartment;
  */
 public interface BookingRepository {
     Booking save(Booking booking);
+    Optional<Booking> findByUuid(String uuid);
 }

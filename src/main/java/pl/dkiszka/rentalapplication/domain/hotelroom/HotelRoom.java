@@ -3,7 +3,7 @@ package pl.dkiszka.rentalapplication.domain.hotelroom;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
-import pl.dkiszka.rentalapplication.domain.apartment.Booking;
+import pl.dkiszka.rentalapplication.domain.booking.Booking;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

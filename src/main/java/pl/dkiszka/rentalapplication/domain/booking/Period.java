@@ -1,4 +1,4 @@
-package pl.dkiszka.rentalapplication.domain.apartment;
+package pl.dkiszka.rentalapplication.domain.booking;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package pl.dkiszka.rentalapplication.adapters.eventlistener.hotelbookinghistory;
+package pl.dkiszka.rentalapplication.adapters.eventlisteners.hotelbookinghistory;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.event.EventListener;

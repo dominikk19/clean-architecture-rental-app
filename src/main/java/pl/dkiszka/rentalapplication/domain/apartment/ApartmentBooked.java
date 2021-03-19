@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import pl.dkiszka.rentalapplication.domain.DomainEvent;
+import pl.dkiszka.rentalapplication.domain.booking.Period;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

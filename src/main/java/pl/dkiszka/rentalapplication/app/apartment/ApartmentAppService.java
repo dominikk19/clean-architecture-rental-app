@@ -4,8 +4,8 @@ import lombok.RequiredArgsConstructor;
 import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 import pl.dkiszka.rentalapplication.domain.apartment.ApartmentFactory;
 import pl.dkiszka.rentalapplication.domain.apartment.ApartmentRepository;
-import pl.dkiszka.rentalapplication.domain.apartment.BookingRepository;
-import pl.dkiszka.rentalapplication.domain.apartment.Period;
+import pl.dkiszka.rentalapplication.domain.booking.BookingRepository;
+import pl.dkiszka.rentalapplication.domain.booking.Period;
 
 import java.time.LocalDate;
 import java.util.Map;

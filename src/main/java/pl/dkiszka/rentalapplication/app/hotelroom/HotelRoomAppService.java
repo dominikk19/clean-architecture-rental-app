@@ -2,7 +2,7 @@ package pl.dkiszka.rentalapplication.app.hotelroom;
 
 import lombok.RequiredArgsConstructor;
 import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
-import pl.dkiszka.rentalapplication.domain.apartment.BookingRepository;
+import pl.dkiszka.rentalapplication.domain.booking.BookingRepository;
 import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoomFactory;
 import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoomRepository;
 

@@ -1,11 +1,16 @@
 package pl.dkiszka.rentalapplication.adapters.rest.api.hotel;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.dkiszka.rentalapplication.app.hotel.HotelAppService;
+import pl.dkiszka.rentalapplication.query.hotel.QueryHotelRepository;
+import pl.dkiszka.rentalapplication.query.hotel.dto.HotelReadModelDto;
+
+import java.util.List;
 
 /**
  * @author Dominik Kiszka {dominikk19}
@@ -18,6 +23,7 @@ import pl.dkiszka.rentalapplication.app.hotel.HotelAppService;
 class HotelRestController {
 
     private final HotelAppService hotelAppService;
+    private final QueryHotelRepository queryHotelRepository;
 
     @PostMapping
     void add(@RequestBody HotelDto hotelDto) {
@@ -26,4 +32,8 @@ class HotelRestController {
                 hotelDto.getCity(), hotelDto.getCountry());
     }
 
+    @GetMapping
+    public List<HotelReadModelDto> findAll() {
+        return queryHotelRepository.findAll();
+    }
 }

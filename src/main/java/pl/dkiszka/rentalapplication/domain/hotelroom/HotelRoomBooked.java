@@ -17,7 +17,7 @@ import java.util.UUID;
  */
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-class HotelRoomBooked implements DomainEvent {
+public class HotelRoomBooked implements DomainEvent {
 
     static HotelRoomBooked create(String hotelRoomId, String hotelId, String tenantId, List<LocalDate> days) {
         return new HotelRoomBooked(UUID.randomUUID().toString(), LocalDateTime.now(), hotelRoomId, hotelId, tenantId, days);

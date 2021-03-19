@@ -17,9 +17,9 @@ public class ApartmentFactory {
         var address = new Address(street, postalCode, houseNumber, apartmentNumber, city, country);
         var rooms = roomsDefinition.entrySet()
                 .stream()
-                .map(roomDef -> {
-                    var squareMeter = new SquareMeter(roomDef.getValue());
-                    return new Room(roomDef.getKey(), squareMeter);
+                .map(entry -> {
+                    var squareMeter = new SquareMeter(entry.getValue());
+                    return new Room(entry.getKey(), squareMeter);
                 })
                 .collect(toList());
 

@@ -11,7 +11,7 @@ import java.time.LocalDate;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
-//@Embeddable
+@Embeddable
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class BookingPeriod {
     private LocalDate periodStart;

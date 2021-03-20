@@ -18,6 +18,7 @@
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <lombok.version>1.18.16</lombok.version>
         <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
+        <maven-pmd-plugin.version>3.13.0</maven-pmd-plugin.version>
     </properties>
 
 
@@ -96,7 +97,26 @@
                         </executions>
                         <configuration>
                             <configLocation>config/static-analysis/checkstyle.xml</configLocation>
-                            <violationSeverity>warning </violationSeverity>
+                            <violationSeverity>warning</violationSeverity>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-pmd-plugin</artifactId>
+                        <version>${maven-pmd-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>validate</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <targetJdk>11</targetJdk>
+                            <linkXRef>false</linkXRef>
+                            <rulesets>config/static-analysis/pmd.xml</rulesets>
                         </configuration>
                     </plugin>
                 </plugins>

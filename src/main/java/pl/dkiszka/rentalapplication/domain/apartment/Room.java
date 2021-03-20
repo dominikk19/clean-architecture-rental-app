@@ -4,22 +4,30 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  * @author Dominik Kiszka {dominikk19}
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
-@Embeddable
+@Entity
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-@AllArgsConstructor(access = AccessLevel.PACKAGE)
 class Room {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String id;
     private String name;
 
     @Embedded
     private SquareMeter squareMeter;
 
-
+    Room(String name, SquareMeter squareMeter) {
+        this.name = name;
+        this.squareMeter = squareMeter;
+    }
 }

@@ -1,6 +1,8 @@
 package pl.dkiszka.rentalapplication.domain.apartment;
 
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
@@ -15,6 +17,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
 
@@ -26,6 +29,8 @@ import java.util.List;
 @Entity
 @Table(name = "APARTMENT")
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 public class Apartment {
 
     @Id
@@ -37,8 +42,7 @@ public class Apartment {
     @Embedded
     private Address address;
 
-    @ElementCollection
-//    @CollectionTable(name = "APARTMENT_ROOM", joinColumns = @JoinColumn(name = "APARTMENT_ID"))
+    @OneToMany
     private List<Room> rooms;
     private String description;
 

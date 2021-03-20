@@ -12,7 +12,7 @@ import static java.util.stream.Collectors.toList;
  */
 public class ApartmentFactory {
 
-    public Apartment create(String ownerId, String street, String postalCode, String houseNumber, String apartmentNumber, String city,
+    public static Apartment create(String ownerId, String street, String postalCode, String houseNumber, String apartmentNumber, String city,
                             String country, String description, Map<String, Double> roomsDefinition) {
         var address = new Address(street, postalCode, houseNumber, apartmentNumber, city, country);
         var rooms = roomsDefinition.entrySet()

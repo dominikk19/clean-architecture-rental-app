@@ -20,7 +20,8 @@ public class Period {
     private final LocalDate end;
 
     List<LocalDate> asDays() {
-        return start.datesUntil(end)
-                .collect(toList());
+        var dates = start.datesUntil(end).collect(toList());
+        dates.add(end);
+        return dates;
     }
 }

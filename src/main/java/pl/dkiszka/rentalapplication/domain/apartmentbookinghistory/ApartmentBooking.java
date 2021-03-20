@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
-@Embeddable
+//@Embeddable
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ApartmentBooking {
 
@@ -29,7 +29,7 @@ public class ApartmentBooking {
     private String ownerId;
     private String tenantId;
 
-    @Embedded
+//    @Embedded
     private BookingPeriod bookingPeriod;
 
     private ApartmentBooking(BookingStep bookingStep, LocalDateTime bookingDateTime, String ownerId, String tenantId, BookingPeriod bookingPeriod) {

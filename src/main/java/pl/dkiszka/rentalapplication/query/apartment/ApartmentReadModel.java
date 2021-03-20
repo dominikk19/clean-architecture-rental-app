@@ -33,6 +33,6 @@ class ApartmentReadModel {
     private String country;
     private String description;
 
-    @ElementCollection
-    private List<RoomReadModel> rooms;
+//    @ElementCollection
+//    private List<RoomReadModel> rooms;
 }

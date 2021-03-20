@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
-@Embeddable
+//@Embeddable
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 class ApartmentBookingReadModel {
     private String bookingStep;

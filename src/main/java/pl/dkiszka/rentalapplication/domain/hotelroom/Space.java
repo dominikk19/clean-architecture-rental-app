@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
+import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 
@@ -12,12 +13,12 @@ import javax.persistence.Entity;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
-@Entity
+//@Embeddable
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 class Space {
     private String name;
 
-    @Embedded
+//    @Embedded
     private SquareMeter squareMeter;
 
     Space(String name, SquareMeter squareMeter) {

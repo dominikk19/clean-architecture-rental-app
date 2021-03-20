@@ -1,6 +1,7 @@
 package pl.dkiszka.rentalapplication.app.hotelbookinghistory;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import pl.dkiszka.rentalapplication.domain.hotelbookinghistory.HotelBookingHistory;
 import pl.dkiszka.rentalapplication.domain.hotelbookinghistory.HotelBookingHistoryRepository;
 import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoomBooked;
@@ -10,6 +11,7 @@ import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoomBooked;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
+@Service
 @RequiredArgsConstructor
 public class HotelBookingHistoryAppService {
 

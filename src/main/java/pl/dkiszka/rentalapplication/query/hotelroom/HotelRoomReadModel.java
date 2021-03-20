@@ -26,8 +26,8 @@ class HotelRoomReadModel {
     private String hotelId;
     private int number;
 
-    @ElementCollection
-    private List<SpaceReadModel> spaces;
+//    @ElementCollection
+//    private List<SpaceReadModel> spaces;
 
     private String description;
 }

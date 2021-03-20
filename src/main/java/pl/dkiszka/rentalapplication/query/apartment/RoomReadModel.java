@@ -11,7 +11,7 @@ import javax.persistence.Embeddable;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
-@Embeddable
+//@Embeddable
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 class RoomReadModel {

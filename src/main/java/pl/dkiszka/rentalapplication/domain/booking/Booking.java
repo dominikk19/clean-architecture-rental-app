@@ -42,8 +42,8 @@ public class Booking {
     private String rentalPlaceId;
     private String tenantId;
 
-    @ElementCollection
-    private List<LocalDate> days;
+//    @ElementCollection
+//    private List<LocalDate> days;
 
     @Enumerated(EnumType.STRING)
     private BookingStatus bookingStatus = BookingStatus.OPEN;
@@ -54,7 +54,7 @@ public class Booking {
         this.rentalType = rentalType;
         this.rentalPlaceId = rentalPlaceId;
         this.tenantId = tenantId;
-        this.days = days;
+       // this.days = days;
     }
 
     public void reject() {
@@ -64,7 +64,7 @@ public class Booking {
     public void accept(DomainEventChannel eventChannel) {
         bookingStatus = BookingStatus.ACCEPTED;
 
-        var bookingAccepted = BookingAccepted.create(rentalType, rentalPlaceId, tenantId, days);
+        var bookingAccepted = BookingAccepted.create(rentalType, rentalPlaceId, tenantId, null);
         eventChannel.publish(bookingAccepted);
     }
 }

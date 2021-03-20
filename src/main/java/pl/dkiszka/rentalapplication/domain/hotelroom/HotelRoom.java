@@ -32,8 +32,8 @@ public class HotelRoom {
     private String hotelId;
     private int number;
 
-    @ElementCollection
-    private List<Space> spaces;
+//    @ElementCollection
+//    private List<Space> spaces;
 
     private String description;
 
@@ -41,7 +41,7 @@ public class HotelRoom {
         this.uuid = uuid;
         this.hotelId = hotelId;
         this.number = number;
-        this.spaces = spaces;
+       // this.spaces = spaces;
         this.description = description;
     }
 

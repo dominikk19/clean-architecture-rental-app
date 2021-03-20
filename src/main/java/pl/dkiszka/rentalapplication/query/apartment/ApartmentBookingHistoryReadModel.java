@@ -22,6 +22,6 @@ class ApartmentBookingHistoryReadModel {
     @Id
     private String apartmentId;
 
-    @ElementCollection
-    private List<ApartmentBookingReadModel> bookings = Lists.newArrayList();
+//    @ElementCollection
+//    private List<ApartmentBookingReadModel> bookings = Lists.newArrayList();
 }

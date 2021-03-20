@@ -2,6 +2,7 @@ package pl.dkiszka.rentalapplication.adapters.commandregistry.spring;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.stereotype.Component;
 import pl.dkiszka.rentalapplication.app.booking.BookingAccept;
 import pl.dkiszka.rentalapplication.app.booking.BookingReject;
 import pl.dkiszka.rentalapplication.app.commandregistry.CommandRegistry;
@@ -11,7 +12,7 @@ import pl.dkiszka.rentalapplication.app.commandregistry.CommandRegistry;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
-
+@Component
 @RequiredArgsConstructor
 class SpringCommandRegistry implements CommandRegistry {
     private final ApplicationEventPublisher publisher;

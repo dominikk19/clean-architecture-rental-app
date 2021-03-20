@@ -1,6 +1,7 @@
 package pl.dkiszka.rentalapplication.app.apartmentbookinghistory;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import pl.dkiszka.rentalapplication.domain.apartment.ApartmentBooked;
 import pl.dkiszka.rentalapplication.domain.apartmentbookinghistory.ApartmentBooking;
 import pl.dkiszka.rentalapplication.domain.apartmentbookinghistory.ApartmentBookingHistory;
@@ -12,6 +13,7 @@ import pl.dkiszka.rentalapplication.domain.apartmentbookinghistory.BookingPeriod
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
+@Service
 @RequiredArgsConstructor
 public class ApartmentBookingHistoryAppService {
 

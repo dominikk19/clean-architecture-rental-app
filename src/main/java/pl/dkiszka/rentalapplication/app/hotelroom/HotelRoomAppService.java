@@ -1,6 +1,7 @@
 package pl.dkiszka.rentalapplication.app.hotelroom;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 import pl.dkiszka.rentalapplication.domain.booking.BookingRepository;
 import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoomFactory;
@@ -15,6 +16,7 @@ import java.util.Map;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
+@Service
 @RequiredArgsConstructor
 public class HotelRoomAppService {
 

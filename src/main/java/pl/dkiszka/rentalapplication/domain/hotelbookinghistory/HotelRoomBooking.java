@@ -29,12 +29,12 @@ class HotelRoomBooking {
     private LocalDateTime bookingDateTime;
     private String tenantId;
 
-    @ElementCollection
-    private List<LocalDate> days;
+//    @ElementCollection
+//    private List<LocalDate> days;
 
     HotelRoomBooking(LocalDateTime bookingDateTime, String tenantId, List<LocalDate> days) {
         this.bookingDateTime = bookingDateTime;
         this.tenantId = tenantId;
-        this.days = days;
+       // this.days = days;
     }
 }

@@ -12,6 +12,7 @@ import java.util.Optional;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
+@org.springframework.stereotype.Repository
 @RequiredArgsConstructor
 class JpaHotelBookingHistoryRepository implements HotelBookingHistoryRepository {
 

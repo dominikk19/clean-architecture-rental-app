@@ -2,6 +2,7 @@ package pl.dkiszka.rentalapplication.adapters.eventlisteners.booking;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Component;
 import pl.dkiszka.rentalapplication.app.booking.BookingAccept;
 import pl.dkiszka.rentalapplication.app.booking.BookingAppService;
 import pl.dkiszka.rentalapplication.app.booking.BookingReject;
@@ -11,6 +12,7 @@ import pl.dkiszka.rentalapplication.app.booking.BookingReject;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
+@Component
 @RequiredArgsConstructor
 class BookingCommandHandler {
 

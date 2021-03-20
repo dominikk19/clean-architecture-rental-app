@@ -2,6 +2,7 @@ package pl.dkiszka.rentalapplication.adapters.eventlisteners.apartmentbookinghis
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Component;
 import pl.dkiszka.rentalapplication.app.apartmentbookinghistory.ApartmentBookingHistoryAppService;
 import pl.dkiszka.rentalapplication.domain.apartment.ApartmentBooked;
 
@@ -10,6 +11,7 @@ import pl.dkiszka.rentalapplication.domain.apartment.ApartmentBooked;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
+@Component
 @RequiredArgsConstructor
 class ApartmentBookingHistoryEventListener {
     private final ApartmentBookingHistoryAppService apartmentBookingHistoryAppService;

@@ -11,6 +11,7 @@ import java.util.List;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
+@org.springframework.stereotype.Repository
 @RequiredArgsConstructor
 public class QueryHotelRepository {
     private final SpringJpaQueryHotelRepository springJpaQueryHotelRepository;

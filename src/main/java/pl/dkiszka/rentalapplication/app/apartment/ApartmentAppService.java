@@ -1,6 +1,7 @@
 package pl.dkiszka.rentalapplication.app.apartment;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 import pl.dkiszka.rentalapplication.domain.apartment.ApartmentFactory;
 import pl.dkiszka.rentalapplication.domain.apartment.ApartmentRepository;
@@ -15,6 +16,7 @@ import java.util.Map;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
+@Service
 @RequiredArgsConstructor
 public class ApartmentAppService {
     private final ApartmentRepository apartmentRepository;

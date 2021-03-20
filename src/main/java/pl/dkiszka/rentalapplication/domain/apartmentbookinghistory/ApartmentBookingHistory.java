@@ -1,6 +1,8 @@
 package pl.dkiszka.rentalapplication.domain.apartmentbookinghistory;
 
 import com.google.common.collect.Lists;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.ElementCollection;
@@ -16,19 +18,19 @@ import java.util.List;
  */
 @Entity
 @Table(name = "APARTMENT_BOOKING_HISTORY")
-@RequiredArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ApartmentBookingHistory {
     @Id
     private String apartmentId;
 
-    @ElementCollection
-    private final List<ApartmentBooking> bookings = Lists.newArrayList();
+//    @ElementCollection
+//    private final List<ApartmentBooking> bookings = Lists.newArrayList();
 
     public ApartmentBookingHistory(String apartmentId) {
         this.apartmentId = apartmentId;
     }
 
     public void add(ApartmentBooking apartmentBooking) {
-        bookings.add(apartmentBooking);
+       // bookings.add(apartmentBooking);
     }
 }

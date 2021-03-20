@@ -10,6 +10,7 @@ import pl.dkiszka.rentalapplication.domain.hotel.HotelRepository;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
+@org.springframework.stereotype.Repository
 @RequiredArgsConstructor
 class JpaHotelRepository implements HotelRepository {
 

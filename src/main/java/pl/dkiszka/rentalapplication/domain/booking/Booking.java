@@ -64,7 +64,7 @@ public class Booking {
     public void accept(DomainEventChannel eventChannel) {
         bookingStatus = BookingStatus.ACCEPTED;
 
-        var bookingAccepted = BookingAccepted.create(rentalType, rentalPlaceId, tenantId, null);
+        var bookingAccepted = BookingAccepted.create(rentalType, rentalPlaceId, tenantId, days);
         eventChannel.publish(bookingAccepted);
     }
 }

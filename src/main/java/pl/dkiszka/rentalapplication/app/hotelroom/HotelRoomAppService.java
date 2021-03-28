@@ -25,7 +25,7 @@ public class HotelRoomAppService {
     private final DomainEventChannel eventChannel;
 
     public void add(String hotelId, int number, Map<String, Double> spacesDefinition, String description) {
-        var hotelRoom = new HotelRoomFactory().create(hotelId, number, spacesDefinition, description);
+        var hotelRoom = HotelRoomFactory.create(hotelId, number, spacesDefinition, description);
         hotelRoomRepository.save(hotelRoom);
     }
 

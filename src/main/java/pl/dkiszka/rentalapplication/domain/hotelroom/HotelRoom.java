@@ -6,11 +6,13 @@ import lombok.RequiredArgsConstructor;
 import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 import pl.dkiszka.rentalapplication.domain.booking.Booking;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.time.LocalDate;
@@ -32,8 +34,8 @@ public class HotelRoom {
     private String hotelId;
     private int number;
 
-//    @ElementCollection
-//    private List<Space> spaces;
+    @ElementCollection
+    private List<Space> spaces;
 
     private String description;
 
@@ -41,7 +43,7 @@ public class HotelRoom {
         this.uuid = uuid;
         this.hotelId = hotelId;
         this.number = number;
-       // this.spaces = spaces;
+        this.spaces = spaces;
         this.description = description;
     }
 

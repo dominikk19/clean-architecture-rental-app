@@ -2,27 +2,23 @@ package pl.dkiszka.rentalapplication.domain.hotelroom;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
 
 /**
  * @author Dominik Kiszka {dominikk19}
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
-//@Embeddable
+@Embeddable
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 class Space {
     private String name;
 
-//    @Embedded
-    private SquareMeter squareMeter;
+    private Double value;
 
-    Space(String name, SquareMeter squareMeter) {
+    Space(String name, Double value) {
         this.name = name;
-        this.squareMeter = squareMeter;
+        this.value = value;
     }
 }

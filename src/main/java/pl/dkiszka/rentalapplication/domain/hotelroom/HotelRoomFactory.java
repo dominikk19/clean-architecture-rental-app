@@ -11,12 +11,9 @@ import static java.util.stream.Collectors.toList;
  * @date 19.03.2021
  */
 public class HotelRoomFactory {
-    public HotelRoom create(String hotelId, int number, Map<String, Double> spacesDefinition, String description) {
+    public static HotelRoom create(String hotelId, int number, Map<String, Double> spacesDefinition, String description) {
         var spaces = spacesDefinition.entrySet().stream()
-                .map(entry -> {
-                    SquareMeter squareMeter = new SquareMeter(entry.getValue());
-                    return new Space(entry.getKey(), squareMeter);
-                })
+                .map(entry -> new Space(entry.getKey(), entry.getValue()))
                 .collect(toList());
         return new HotelRoom(UUID.randomUUID().toString(), hotelId, number, spaces, description);
     }

@@ -192,8 +192,8 @@
                                 <configuration>
                                     <includes>
                                         <include>pl/dkiszka/rentalapplication/domain/**/*</include>
-                                        <include>pl/dkiszka/rentalapplication/app/**/*</include>
-                                        <include>pl/dkiszka/rentalapplication/adapters/persistence/jpa/**/*</include>
+<!--                                        <include>pl/dkiszka/rentalapplication/app/**/*</include>-->
+<!--                                        <include>pl/dkiszka/rentalapplication/adapters/persistence/jpa/**/*</include>-->
                                     </includes>
                                     <rules>
                                         <rule>
@@ -202,13 +202,12 @@
                                                 <limit>
                                                     <counter>LINE</counter>
                                                     <value>COVEREDRATIO</value>
-                                                    <minimum>1.00</minimum>
+                                                    <minimum>0.75</minimum>
                                                 </limit>
-
                                                 <limit>
                                                     <counter>CLASS</counter>
                                                     <value>MISSEDCOUNT</value>
-                                                    <maximum>0</maximum>
+                                                    <maximum>1</maximum> <!--class created from lombok builder-->
                                                 </limit>
                                             </limits>
                                         </rule>

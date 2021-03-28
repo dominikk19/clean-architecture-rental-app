@@ -2,7 +2,6 @@ package pl.dkiszka.rentalapplication.domain.hotelbookinghistory;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -29,12 +28,12 @@ class HotelRoomBooking {
     private LocalDateTime bookingDateTime;
     private String tenantId;
 
-//    @ElementCollection
-//    private List<LocalDate> days;
+    @ElementCollection
+    private List<LocalDate> days;
 
     HotelRoomBooking(LocalDateTime bookingDateTime, String tenantId, List<LocalDate> days) {
         this.bookingDateTime = bookingDateTime;
         this.tenantId = tenantId;
-       // this.days = days;
+        this.days = days;
     }
 }

@@ -10,5 +10,5 @@ matrix:
       - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
 
 script:
-  - mvn -Pstatic-analysis
+#  - mvn -Pstatic-analysis // todo
   - mvn -Pruntime-analysis

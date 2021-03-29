@@ -26,11 +26,12 @@ class JpaHotelRoomRepository implements HotelRoomRepository {
     @Override
     public HotelRoom findByUuid(String uuid) {
         return springJpaHotelRoomRepository.findByUuid(uuid)
-                .orElseThrow(()->new HotelRoomNotFoundException(String.format("Hotel room by uuid: %s not exists", uuid)));
+                .orElseThrow(() -> new HotelRoomNotFoundException(String.format("Hotel room by uuid: %s not exists", uuid)));
     }
 }
 
 interface SpringJpaHotelRoomRepository extends Repository<HotelRoom, String> {
     HotelRoom save(HotelRoom hotelRoom);
+
     Optional<HotelRoom> findByUuid(String uuid);
 }

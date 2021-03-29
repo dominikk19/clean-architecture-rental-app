@@ -3,8 +3,6 @@ package pl.dkiszka.rentalapplication.query.hotelroom;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Embeddable;
-
 /**
  * @author Dominik Kiszka {dominikk19}
  * @project clean-architecture-rental-app

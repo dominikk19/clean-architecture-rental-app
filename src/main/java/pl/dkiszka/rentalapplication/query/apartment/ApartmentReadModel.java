@@ -4,13 +4,9 @@ package pl.dkiszka.rentalapplication.query.apartment;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.List;
-import java.util.UUID;
 
 /**
  * @author Dominik Kiszka {dominikk19}

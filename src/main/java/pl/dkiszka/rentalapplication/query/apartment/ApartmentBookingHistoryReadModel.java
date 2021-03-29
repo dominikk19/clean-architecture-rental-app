@@ -1,14 +1,11 @@
 package pl.dkiszka.rentalapplication.query.apartment;
 
-import com.google.common.collect.Lists;
+
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.List;
 
 /**
  * @author Dominik Kiszka {dominikk19}

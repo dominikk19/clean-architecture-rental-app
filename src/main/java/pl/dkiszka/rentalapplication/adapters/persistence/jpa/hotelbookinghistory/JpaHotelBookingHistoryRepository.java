@@ -29,7 +29,8 @@ class JpaHotelBookingHistoryRepository implements HotelBookingHistoryRepository 
     }
 }
 
-interface SpringJpaHotelBookingHistoryRepository extends Repository<HotelBookingHistory, String>{
+interface SpringJpaHotelBookingHistoryRepository extends Repository<HotelBookingHistory, String> {
     Optional<HotelBookingHistory> findByHotelId(String hotelId);
+
     HotelBookingHistory save(HotelBookingHistory hotelBookingHistory);
 }

@@ -10,7 +10,10 @@ import static java.util.stream.Collectors.toList;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
+@SuppressWarnings("checkstyle:HideUtilityClassConstructor")
 public class HotelRoomFactory {
+
+    @SuppressWarnings("checkstyle:ParameterNumber")
     public static HotelRoom create(String hotelId, int number, Map<String, Double> spacesDefinition, String description) {
         var spaces = spacesDefinition.entrySet().stream()
                 .map(entry -> new Space(entry.getKey(), entry.getValue()))

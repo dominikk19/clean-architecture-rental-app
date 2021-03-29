@@ -1,6 +1,7 @@
 package pl.dkiszka.rentalapplication.architecture;
 
 import com.tngtech.archunit.library.GeneralCodingRules;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -8,6 +9,7 @@ import org.junit.jupiter.api.Test;
  * @project clean-architecture-rental-app
  * @date 29.03.2021
  */
+@Tag("ArchitectureTest")
 class ClassesStructureTest {
     @Test
     void should_have_no_class_that_uses_field_injection() {

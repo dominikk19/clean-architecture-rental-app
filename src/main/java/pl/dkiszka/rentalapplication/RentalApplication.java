@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 19.03.2021
  */
 @SpringBootApplication
+@SuppressWarnings("checkstyle:HideUtilityClassConstructor")
 public class RentalApplication {
     public static void main(String[] args) {
         SpringApplication.run(RentalApplication.class, args);

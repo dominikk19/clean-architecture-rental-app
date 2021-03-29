@@ -23,6 +23,7 @@ public class ApartmentAppService {
     private final DomainEventChannel eventChannel;
     private final BookingRepository bookingRepository;
 
+    @SuppressWarnings("checkstyle:ParameterNumber")
     public void add(String ownerId, String street, String postalCode, String houseNumber, String apartmentNumber, String city, String country,
                     String description, Map<String, Double> roomsDefinition) {
         var apartment = new ApartmentFactory().create(ownerId, street, postalCode, houseNumber, apartmentNumber, city, country, description, roomsDefinition);

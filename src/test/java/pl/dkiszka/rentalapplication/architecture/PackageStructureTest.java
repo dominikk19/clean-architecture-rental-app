@@ -1,6 +1,7 @@
 package pl.dkiszka.rentalapplication.architecture;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
@@ -10,6 +11,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
  * @project clean-architecture-rental-app
  * @date 29.03.2021
  */
+@Tag("ArchitectureTest")
 class PackageStructureTest {
 
     private static final String DOMAIN = "..domain..";

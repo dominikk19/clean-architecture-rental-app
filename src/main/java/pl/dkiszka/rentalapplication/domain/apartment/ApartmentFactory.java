@@ -10,8 +10,10 @@ import static java.util.stream.Collectors.toList;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
+@SuppressWarnings("checkstyle:HideUtilityClassConstructor")
 public class ApartmentFactory {
 
+    @SuppressWarnings("checkstyle:ParameterNumber")
     public static Apartment create(String ownerId, String street, String postalCode, String houseNumber, String apartmentNumber, String city,
                             String country, String description, Map<String, Double> roomsDefinition) {
         var address = new Address(street, postalCode, houseNumber, apartmentNumber, city, country);
@@ -22,7 +24,6 @@ public class ApartmentFactory {
                     return new Room(entry.getKey(), squareMeter);
                 })
                 .collect(toList());
-
         return new Apartment(UUID.randomUUID().toString(), ownerId, address, rooms, description);
     }
 }

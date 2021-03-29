@@ -3,13 +3,9 @@ package pl.dkiszka.rentalapplication.query.hotelroom;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.List;
-import java.util.UUID;
 
 /**
  * @author Dominik Kiszka {dominikk19}
@@ -19,6 +15,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "HOTEL_ROOM")
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+@SuppressWarnings("PMD.UnusedPrivateField")
 class HotelRoomReadModel {
     @Id
     private String id;

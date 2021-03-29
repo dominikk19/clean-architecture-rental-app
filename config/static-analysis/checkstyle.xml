@@ -76,7 +76,7 @@
         <module name="NestedTryDepth"/>
         <module name="NoWhitespaceAfter"/>
         <module name="NoWhitespaceBefore"/>
-        <module name="OneTopLevelClass"/>
+<!--        <module name="OneTopLevelClass"/>-->
         <module name="OperatorWrap"/>
         <module name="OuterTypeFilename"/>
         <module name="OverloadMethodsDeclarationOrder"/>

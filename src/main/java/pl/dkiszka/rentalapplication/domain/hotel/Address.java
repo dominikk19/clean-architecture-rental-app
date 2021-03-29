@@ -2,7 +2,6 @@ package pl.dkiszka.rentalapplication.domain.hotel;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import javax.persistence.Embeddable;
 

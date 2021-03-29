@@ -1,19 +1,16 @@
 package pl.dkiszka.rentalapplication.domain.hotelroom;
 
+
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 import pl.dkiszka.rentalapplication.domain.booking.Booking;
 
-import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.List;

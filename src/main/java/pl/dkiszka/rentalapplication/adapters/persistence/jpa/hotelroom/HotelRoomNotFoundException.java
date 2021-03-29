@@ -6,7 +6,7 @@ package pl.dkiszka.rentalapplication.adapters.persistence.jpa.hotelroom;
  * @date 19.03.2021
  */
 class HotelRoomNotFoundException extends RuntimeException {
-    public HotelRoomNotFoundException(String message) {
+    HotelRoomNotFoundException(String message) {
         super(message);
     }
 }

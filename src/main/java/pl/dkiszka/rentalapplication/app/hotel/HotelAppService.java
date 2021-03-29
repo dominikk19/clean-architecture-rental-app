@@ -16,6 +16,7 @@ public class HotelAppService {
 
     private final HotelRepository hotelRepository;
 
+    @SuppressWarnings("checkstyle:ParameterNumber")
     public void add(String name, String street, String postalCode, String buildingNumber, String city, String country) {
         var hotel = new HotelFactory().create(name, street, postalCode, buildingNumber, city, country);
         hotelRepository.save(hotel);

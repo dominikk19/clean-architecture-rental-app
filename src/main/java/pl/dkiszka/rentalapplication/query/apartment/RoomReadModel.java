@@ -4,8 +4,6 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Embeddable;
-
 /**
  * @author Dominik Kiszka {dominikk19}
  * @project clean-architecture-rental-app

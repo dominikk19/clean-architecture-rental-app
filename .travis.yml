@@ -10,7 +10,7 @@ matrix:
       - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
 
 script:
-  - mvn -Pstatic-analysis
-  - mvn -Parchitecture-tests
-  - mvn -Punit-tests
-  - mvn -Pruntime-analysis
+  - mvn -Pstatic-analysis clean compile
+  - mvn -Parchitecture-tests test
+  - mvn -Punit-tests verify
+  - mvn -Pruntime-analysis verify

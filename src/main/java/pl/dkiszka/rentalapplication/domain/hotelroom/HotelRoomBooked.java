@@ -19,11 +19,12 @@ import java.util.UUID;
 @Getter
 public class HotelRoomBooked implements DomainEvent {
 
-    static HotelRoomBooked create(String hotelRoomId, String hotelId, String tenantId, List<LocalDate> days) {
-        return new HotelRoomBooked(UUID.randomUUID().toString(), LocalDateTime.now(), hotelRoomId, hotelId, tenantId, days);
+    @SuppressWarnings("checkstyle:ParameterNumber")
+    static HotelRoomBooked create(String eventUuid, String hotelRoomId, String hotelId, String tenantId, List<LocalDate> days) {
+        return new HotelRoomBooked(eventUuid, LocalDateTime.now(), hotelRoomId, hotelId, tenantId, days);
     }
 
-    private final String eventId;
+    private final String eventUuid;
     private final LocalDateTime eventCreationDateTime;
     private final String hotelRoomId;
     private final String hotelId;

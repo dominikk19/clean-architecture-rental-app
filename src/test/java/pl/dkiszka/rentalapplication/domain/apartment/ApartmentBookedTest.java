@@ -19,12 +19,14 @@ class ApartmentBookedTest {
     private final LocalDate periodStart = LocalDate.now().minusDays(5);
     private final LocalDate periodEnd = LocalDate.now().minusDays(1);
     private final Period PERIOD = new Period(periodStart, periodEnd);
+    private final String EVENT_UUID = UUID.randomUUID().toString();
 
     @Test
     void should_create_event_with_all_information() {
-        var actual = ApartmentBooked.create(APARTMENT_ID, OWNER_ID, TENANT_ID, PERIOD);
+        var actual = ApartmentBooked.create(EVENT_UUID,APARTMENT_ID, OWNER_ID, TENANT_ID, PERIOD);
 
         ApartmentBookedAssertion.assertThat(actual)
+                .hasEventUuidEqualsTo(EVENT_UUID)
                 .hasApartmentIdEqualsTo(APARTMENT_ID)
                 .hasOwnerIdEqualsTo(OWNER_ID)
                 .hasTenantdEqualsTo(TENANT_ID)

@@ -3,18 +3,16 @@ package pl.dkiszka.rentalapplication.domain.apartment;
 import com.google.common.collect.ImmutableMap;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.BDDMockito;
 import org.mockito.Mockito;
 import pl.dkiszka.rentalapplication.adapters.rest.api.apartment.ApartmentDto;
-import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 import pl.dkiszka.rentalapplication.domain.booking.Period;
 
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 
 /**
  * @author Dominik Kiszka {dominikk19}
@@ -37,7 +35,7 @@ class ApartmentTest {
     private static final String TENANT_ID = UUID.randomUUID().toString();
     private static final Period PERIOD = new Period(START, END);
 
-    private final DomainEventChannel publisher = Mockito.mock(DomainEventChannel.class);
+    private final ApartmentEventsPublisher publisher = Mockito.mock(ApartmentEventsPublisher.class);
 
 
     @Test
@@ -70,6 +68,6 @@ class ApartmentTest {
 
         apartment.book(TENANT_ID, PERIOD, publisher);
 
-        Mockito.verify(publisher).publish(any(ApartmentBooked.class));
+        Mockito.verify(publisher).publishApartmentBooked(any(), eq(OWNER_ID), eq(TENANT_ID), eq(PERIOD));
     }
 }

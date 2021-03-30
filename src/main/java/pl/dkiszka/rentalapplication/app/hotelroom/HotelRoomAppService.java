@@ -3,8 +3,8 @@ package pl.dkiszka.rentalapplication.app.hotelroom;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.dkiszka.rentalapplication.adapters.rest.api.hotelroom.HotelRoomDto;
-import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 import pl.dkiszka.rentalapplication.domain.booking.BookingRepository;
+import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoomEventsPublisher;
 import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoomFactory;
 import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoomRepository;
 
@@ -22,7 +22,7 @@ public class HotelRoomAppService {
 
     private final HotelRoomRepository hotelRoomRepository;
     private final BookingRepository bookingRepository;
-    private final DomainEventChannel eventChannel;
+    private final HotelRoomEventsPublisher eventChannel;
 
     public void add(HotelRoomDto hotelRoomDto) {
         var hotelRoom = HotelRoomFactory.create(hotelRoomDto);

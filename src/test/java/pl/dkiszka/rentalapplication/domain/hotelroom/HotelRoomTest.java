@@ -25,7 +25,7 @@ class HotelRoomTest {
     private final List<LocalDate> DAYS = List.of(LocalDate.of(2021, 3, 21), LocalDate.of(2021, 3, 30));
 
 
-    private final DomainEventChannel publisher = Mockito.mock(DomainEventChannel.class);
+    private final HotelRoomEventsPublisher publisher = Mockito.mock(HotelRoomEventsPublisher.class);
 
 
     @Test

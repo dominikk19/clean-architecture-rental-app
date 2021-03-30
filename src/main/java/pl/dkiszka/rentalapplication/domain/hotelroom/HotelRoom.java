@@ -44,9 +44,8 @@ public class HotelRoom {
         this.description = description;
     }
 
-    public Booking book(String tenantId, List<LocalDate> days, DomainEventChannel eventChannel) {
-        var hotelRoomBooked = HotelRoomBooked.create(id, hotelId, tenantId, days);
-        eventChannel.publish(hotelRoomBooked);
+    public Booking book(String tenantId, List<LocalDate> days, HotelRoomEventsPublisher publisher) {
+        publisher.publishHotelRoomBooked(id, hotelId, tenantId, days);
 
         return Booking.hotelRoom(id, tenantId, days);
     }

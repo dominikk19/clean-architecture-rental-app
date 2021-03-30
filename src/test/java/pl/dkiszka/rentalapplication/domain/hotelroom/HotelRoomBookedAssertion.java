@@ -24,7 +24,7 @@ class HotelRoomBookedAssertion {
 
     HotelRoomBookedAssertion hasContainEventIdCompatibleWithPattern() {
         Assertions.assertThat(actual)
-                .extracting("eventId")
+                .extracting("eventUuid")
                 .satisfies(eventId -> Assertions.assertThat((String) eventId).matches(Pattern.compile("[0-9a-z\\-]{36}")));
         return this;
     }

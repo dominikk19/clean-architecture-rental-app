@@ -8,7 +8,6 @@ import pl.dkiszka.rentalapplication.domain.booking.Period;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 /**
  * @author Dominik Kiszka {dominikk19}
@@ -19,8 +18,10 @@ import java.util.UUID;
 @Getter
 public class ApartmentBooked implements DomainEvent {
 
-    static ApartmentBooked create(String apartmentId, String ownerId, String tenantId, Period period) {
-        return new ApartmentBooked(UUID.randomUUID().toString(), LocalDateTime.now(), apartmentId, ownerId, tenantId, period.getStart(), period.getEnd());
+    @SuppressWarnings("checkstyle:ParameterNumber")
+    static ApartmentBooked create(String eventUuid, String apartmentId, String ownerId, String tenantId, Period period) {
+        return new ApartmentBooked(eventUuid,
+                LocalDateTime.now(), apartmentId, ownerId, tenantId, period.getStart(), period.getEnd());
     }
 
     private final String eventUuid;

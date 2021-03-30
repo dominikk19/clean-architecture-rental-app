@@ -8,6 +8,7 @@ import org.mockito.BDDMockito;
 import pl.dkiszka.rentalapplication.adapters.rest.api.apartment.ApartmentDto;
 import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 import pl.dkiszka.rentalapplication.domain.apartment.Apartment;
+import pl.dkiszka.rentalapplication.domain.apartment.ApartmentEventsPublisher;
 import pl.dkiszka.rentalapplication.domain.apartment.ApartmentFactory;
 import pl.dkiszka.rentalapplication.domain.apartment.ApartmentRepository;
 import pl.dkiszka.rentalapplication.domain.booking.Booking;
@@ -43,7 +44,7 @@ class ApartmentAppServiceTest {
     private static final LocalDate END = LocalDate.of(2020, 3, 6);
 
     private final ApartmentRepository apartmentRepository = mock(ApartmentRepository.class);
-    private final DomainEventChannel publisher = mock(DomainEventChannel.class);
+    private final ApartmentEventsPublisher publisher = mock(ApartmentEventsPublisher.class);
     private final BookingRepository bookingRepository = mock(BookingRepository.class);
 
     private final ApartmentAppService apartmentAppService = new ApartmentAppService(apartmentRepository, publisher, bookingRepository);

@@ -1,11 +1,8 @@
 package pl.dkiszka.rentalapplication.domain.apartment;
 
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 import pl.dkiszka.rentalapplication.domain.booking.Booking;
 import pl.dkiszka.rentalapplication.domain.booking.Period;
 
@@ -27,7 +24,6 @@ import java.util.UUID;
 @Entity
 @Table(name = "APARTMENT")
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-//@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Apartment {
 
@@ -59,9 +55,8 @@ public class Apartment {
         this.description = description;
     }
 
-    public Booking book(String tenantId, Period period, DomainEventChannel eventChannel) {
-        ApartmentBooked apartmentBooked = ApartmentBooked.create(id, ownerId, tenantId, period);
-        eventChannel.publish(apartmentBooked);
+    public Booking book(String tenantId, Period period, ApartmentEventsPublisher eventsPublisher) {
+        eventsPublisher.publishApartmentBooked(id, ownerId, tenantId, period);
 
         return Booking.apartment(id, tenantId, period);
     }

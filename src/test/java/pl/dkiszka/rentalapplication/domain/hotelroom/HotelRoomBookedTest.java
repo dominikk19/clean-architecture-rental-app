@@ -17,10 +17,11 @@ class HotelRoomBookedTest {
     private final String HOTEL_ID = UUID.randomUUID().toString();
     private final String TENANT_ID = UUID.randomUUID().toString();
     private final List<LocalDate> DAYS = List.of(LocalDate.of(2021,3,1), LocalDate.of(2021,3,2));
+    private final String EVENT_UUID = UUID.randomUUID().toString();
 
     @Test
     void should_create_HotelRoomBooked_event_with_all_information() {
-        var actual = HotelRoomBooked.create(HOTEL_ROOM_ID, HOTEL_ID, TENANT_ID, DAYS);
+        var actual = HotelRoomBooked.create(EVENT_UUID, HOTEL_ROOM_ID, HOTEL_ID, TENANT_ID, DAYS);
 
         HotelRoomBookedAssertion.assertThat(actual)
                 .hasContainEventIdCompatibleWithPattern()

@@ -21,6 +21,12 @@ class ApartmentBookedAssertion {
 
     private final ApartmentBooked actual;
 
+    ApartmentBookedAssertion hasEventUuidEqualsTo(String expected) {
+        Assertions.assertThat(actual)
+                .hasFieldOrPropertyWithValue("eventUuid", expected);
+        return this;
+    }
+
 
     ApartmentBookedAssertion hasApartmentIdEqualsTo(String expected) {
         Assertions.assertThat(actual)
@@ -51,6 +57,4 @@ class ApartmentBookedAssertion {
         Assertions.assertThat(actual.getEventUuid()).matches(Pattern.compile("[0-9a-z\\-]{36}"));
         return this;
     }
-
-
 }

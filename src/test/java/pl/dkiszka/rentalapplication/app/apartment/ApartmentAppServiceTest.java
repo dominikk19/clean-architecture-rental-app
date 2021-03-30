@@ -5,6 +5,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.BDDMockito;
+import pl.dkiszka.rentalapplication.adapters.rest.api.apartment.ApartmentDto;
 import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 import pl.dkiszka.rentalapplication.domain.apartment.Apartment;
 import pl.dkiszka.rentalapplication.domain.apartment.ApartmentFactory;
@@ -16,13 +17,10 @@ import java.time.LocalDate;
 import java.util.Map;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 /**
  * @author Dominik Kiszka {dominikk19}
@@ -53,7 +51,8 @@ class ApartmentAppServiceTest {
     @Test
     void should_add_new_apartment() {
         ArgumentCaptor<Apartment> captor = ArgumentCaptor.forClass(Apartment.class);
-        apartmentAppService.add(OWNER_ID, STREET, POSTAL_CODE,HOUSE_NUMBER, APARTMENT_NUMBER, CITY, COUNTRY,DESCRIPTION, ROOMS_DEFINITION);
+        var apartmentDto = new ApartmentDto(OWNER_ID, STREET, POSTAL_CODE, HOUSE_NUMBER, APARTMENT_NUMBER, CITY, COUNTRY, DESCRIPTION, ROOMS_DEFINITION);
+        apartmentAppService.add(apartmentDto);
 
         BDDMockito.then(apartmentRepository).should().save(captor.capture());
         ApartmentAssertion.assertThat(captor.getValue())
@@ -65,11 +64,12 @@ class ApartmentAppServiceTest {
 
     @Test
     void given_apartment_when_apartment_book_event_should_be_save_booking() {
-        var apartment = ApartmentFactory.create(OWNER_ID,STREET,POSTAL_CODE, HOUSE_NUMBER,APARTMENT_NUMBER,CITY,COUNTRY,DESCRIPTION,ROOMS_DEFINITION);
+        var apartmentDto = new ApartmentDto(OWNER_ID, STREET, POSTAL_CODE, HOUSE_NUMBER, APARTMENT_NUMBER, CITY, COUNTRY, DESCRIPTION, ROOMS_DEFINITION);
+        var apartment = ApartmentFactory.create(apartmentDto);
         ArgumentCaptor<Booking> captor = ArgumentCaptor.forClass(Booking.class);
         given(apartmentRepository.findByUuid(anyString())).willReturn(apartment);
 
-        apartmentAppService.book(UUID.randomUUID().toString(),TENANT_ID,START,END);
+        apartmentAppService.book(UUID.randomUUID().toString(), TENANT_ID, START, END);
         then(bookingRepository).should().save(captor.capture());
 
         Assertions.assertThat(captor.getValue())

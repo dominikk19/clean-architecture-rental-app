@@ -1,6 +1,7 @@
 package pl.dkiszka.rentalapplication.domain.hotelroom;
 
-import java.util.Map;
+import pl.dkiszka.rentalapplication.adapters.rest.api.hotelroom.HotelRoomDto;
+
 import java.util.UUID;
 
 import static java.util.stream.Collectors.toList;
@@ -13,11 +14,11 @@ import static java.util.stream.Collectors.toList;
 @SuppressWarnings("checkstyle:HideUtilityClassConstructor")
 public class HotelRoomFactory {
 
-    @SuppressWarnings("checkstyle:ParameterNumber")
-    public static HotelRoom create(String hotelId, int number, Map<String, Double> spacesDefinition, String description) {
-        var spaces = spacesDefinition.entrySet().stream()
+    public static HotelRoom create(HotelRoomDto hotelRoomDto) {
+        var spaces = hotelRoomDto.getSpacesDefinition().entrySet().stream()
                 .map(entry -> new Space(entry.getKey(), entry.getValue()))
                 .collect(toList());
-        return new HotelRoom(UUID.randomUUID().toString(), hotelId, number, spaces, description);
+        return new HotelRoom(UUID.randomUUID().toString(), hotelRoomDto.getHotelId(), hotelRoomDto.getNumber(),
+                spaces, hotelRoomDto.getDescription());
     }
 }

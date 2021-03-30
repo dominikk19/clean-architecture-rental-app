@@ -29,10 +29,7 @@ class ApartmentRestController {
 
     @PostMapping
     void add(@RequestBody ApartmentDto apartmentDto) {
-        apartmentAppService.add(
-                apartmentDto.getOwnerId(), apartmentDto.getStreet(), apartmentDto.getPostalCode(), apartmentDto.getHouseNumber(),
-                apartmentDto.getApartmentNumber(), apartmentDto.getCity(), apartmentDto.getCountry(), apartmentDto.getDescription(),
-                apartmentDto.getRoomsDefinition());
+        apartmentAppService.add(apartmentDto);
     }
 
     @PutMapping("/book/{uuid}")

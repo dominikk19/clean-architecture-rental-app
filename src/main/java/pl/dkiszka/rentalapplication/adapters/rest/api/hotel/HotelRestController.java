@@ -27,9 +27,7 @@ class HotelRestController {
 
     @PostMapping
     void add(@RequestBody HotelDto hotelDto) {
-        hotelAppService.add(
-                hotelDto.getName(), hotelDto.getStreet(), hotelDto.getPostalCode(), hotelDto.getBuildingNumber(),
-                hotelDto.getCity(), hotelDto.getCountry());
+        hotelAppService.add(hotelDto);
     }
 
     @GetMapping

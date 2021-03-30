@@ -2,6 +2,7 @@ package pl.dkiszka.rentalapplication.app.hotel;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.dkiszka.rentalapplication.adapters.rest.api.hotel.HotelDto;
 import pl.dkiszka.rentalapplication.domain.hotel.HotelFactory;
 import pl.dkiszka.rentalapplication.domain.hotel.HotelRepository;
 
@@ -16,9 +17,8 @@ public class HotelAppService {
 
     private final HotelRepository hotelRepository;
 
-    @SuppressWarnings("checkstyle:ParameterNumber")
-    public void add(String name, String street, String postalCode, String buildingNumber, String city, String country) {
-        var hotel = new HotelFactory().create(name, street, postalCode, buildingNumber, city, country);
+    public void add(HotelDto hotelDto) {
+        var hotel = HotelFactory.create(hotelDto);
         hotelRepository.save(hotel);
     }
 }

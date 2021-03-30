@@ -2,6 +2,7 @@ package pl.dkiszka.rentalapplication.domain.hotelroom;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import pl.dkiszka.rentalapplication.adapters.rest.api.hotelroom.HotelRoomDto;
 import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 
 import java.time.LocalDate;
@@ -29,7 +30,8 @@ class HotelRoomTest {
 
     @Test
     void should_create_Hotel_room_with_all_from_factory() {
-        var actual = HotelRoomFactory.create(HOTEL_ID, ROOM_NUMBER, SPACES_DEFINITION, DESCRIPTION);
+        var hotelRoomDto = new HotelRoomDto(HOTEL_ID, ROOM_NUMBER, SPACES_DEFINITION, DESCRIPTION);
+        var actual = HotelRoomFactory.create(hotelRoomDto);
 
         HotelRoomAssertion.assertThat(actual)
                 .hasContainUuidCompatibleWithPattern()
@@ -40,7 +42,8 @@ class HotelRoomTest {
 
     @Test
     void when_book_hotel_room_should_be_return_booking() {
-        var hotelRoom = HotelRoomFactory.create(HOTEL_ID, ROOM_NUMBER, SPACES_DEFINITION, DESCRIPTION);
+        var hotelRoomDto = new HotelRoomDto(HOTEL_ID, ROOM_NUMBER, SPACES_DEFINITION, DESCRIPTION);
+        var hotelRoom = HotelRoomFactory.create(hotelRoomDto);
 
         var actual = hotelRoom.book(TENANT_ID, DAYS, publisher);
 

@@ -29,8 +29,7 @@ class HotelRoomRestController {
 
     @PostMapping
     void add(@RequestBody HotelRoomDto hotelRoomDto) {
-        hotelRoomAppService.add(
-                hotelRoomDto.getHotelId(), hotelRoomDto.getNumber(), hotelRoomDto.getSpacesDefinition(), hotelRoomDto.getDescription());
+        hotelRoomAppService.add(hotelRoomDto);
     }
 
     @PutMapping("/book/{uuid}")

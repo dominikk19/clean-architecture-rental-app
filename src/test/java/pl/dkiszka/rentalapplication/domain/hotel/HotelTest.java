@@ -2,6 +2,7 @@ package pl.dkiszka.rentalapplication.domain.hotel;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import pl.dkiszka.rentalapplication.adapters.rest.api.hotel.HotelDto;
 import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 
 /**
@@ -18,10 +19,10 @@ class HotelTest {
     private static final String CITY = "Warsaw";
     private static final String COUNTRY = "Poland";
 
-
     @Test
     void should_create_Hotel_room_with_all_from_factory() {
-        var actual = HotelFactory.create(HOTEL_NAME, STREET, POSTAL_CODE, BUILDING_NUMBER, CITY, COUNTRY);
+        var hotelDto = new HotelDto(HOTEL_NAME, STREET, POSTAL_CODE, BUILDING_NUMBER, CITY, COUNTRY);
+        var actual = HotelFactory.create(hotelDto);
         HotelAssertion.assertThat(actual)
                 .hasContainUuidCompatibleWithPattern()
                 .hasNameEqualsTo(HOTEL_NAME)

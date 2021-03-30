@@ -1,5 +1,7 @@
 package pl.dkiszka.rentalapplication.domain.hotel;
 
+import pl.dkiszka.rentalapplication.adapters.rest.api.hotel.HotelDto;
+
 import java.util.UUID;
 
 /**
@@ -9,9 +11,10 @@ import java.util.UUID;
  */
 @SuppressWarnings("checkstyle:HideUtilityClassConstructor")
 public class HotelFactory {
-    @SuppressWarnings("checkstyle:ParameterNumber")
-    public static Hotel create(String name, String street, String postalCode, String buildingNumber, String city, String country) {
-        Address address = new Address(street, postalCode, buildingNumber, city, country);
-        return new Hotel(UUID.randomUUID().toString(), name, address);
+
+    public static Hotel create(HotelDto hotelDto) {
+        Address address = new Address(hotelDto.getStreet(), hotelDto.getPostalCode(), hotelDto.getBuildingNumber(),
+                hotelDto.getCity(), hotelDto.getCountry());
+        return new Hotel(UUID.randomUUID().toString(), hotelDto.getName(), address);
     }
 }

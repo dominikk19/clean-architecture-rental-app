@@ -1,6 +1,5 @@
 package pl.dkiszka.rentalapplication.adapters.rest.api.apartment;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -11,9 +10,9 @@ import java.util.Map;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
-@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
-@Getter(AccessLevel.PACKAGE)
-class ApartmentDto {
+@RequiredArgsConstructor
+@Getter
+public class ApartmentDto {
     private final String ownerId;
     private final String street;
     private final String postalCode;

@@ -17,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author Dominik Kiszka {dominikk19}
@@ -26,10 +27,14 @@ import java.util.List;
 @Entity
 @Table(name = "APARTMENT")
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Builder
+//@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Apartment {
+
+    static ApartmentBuilder builder() {
+        return new ApartmentBuilder();
+    }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,5 +64,41 @@ public class Apartment {
         eventChannel.publish(apartmentBooked);
 
         return Booking.apartment(id, tenantId, period);
+    }
+
+    public static class ApartmentBuilder {
+        private String ownerId;
+        private Address address;
+        private List<Room> rooms;
+        private String description;
+
+
+        public ApartmentBuilder ownerId(String ownerId) {
+            this.ownerId = ownerId;
+            return this;
+        }
+
+        public ApartmentBuilder address(Address address) {
+            this.address = address;
+            return this;
+        }
+
+        public ApartmentBuilder rooms(List<Room> rooms) {
+            this.rooms = rooms;
+            return this;
+        }
+
+        public ApartmentBuilder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Apartment build() {
+            return new Apartment(UUID.randomUUID().toString(), this.ownerId, this.address, this.rooms, this.description);
+        }
+
+        public String toString() {
+            return "ApartmentBuilder(ownerId=" + this.ownerId + ", address=" + this.address + ", rooms=" + this.rooms + ", description=" + this.description + ")";
+        }
     }
 }

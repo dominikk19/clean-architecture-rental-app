@@ -5,6 +5,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
 import org.mockito.Mockito;
+import pl.dkiszka.rentalapplication.adapters.rest.api.apartment.ApartmentDto;
 import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 import pl.dkiszka.rentalapplication.domain.booking.Period;
 
@@ -41,20 +42,20 @@ class ApartmentTest {
 
     @Test
     void should_create_apartment_with_all_requier_fields() {
-        var actual = ApartmentFactory.create(OWNER_ID, STREET, POSTAL_CODE, HOUSE_NUMBER, APARTMENT_NUMBER, CITY, COUNTRY, DESCRIPTION,
-                ROOMS_DEFINITION);
+        var apartmentDto = new ApartmentDto(OWNER_ID, STREET, POSTAL_CODE, HOUSE_NUMBER, APARTMENT_NUMBER, CITY, COUNTRY, DESCRIPTION, ROOMS_DEFINITION);
+        var actual = ApartmentFactory.create(apartmentDto);
 
         ApartmentAssertion.assertThat(actual)
                 .hasOwnerIdEqualsTo(OWNER_ID)
-                .hasAddressEqualsTo(STREET,POSTAL_CODE,HOUSE_NUMBER,APARTMENT_NUMBER,CITY,COUNTRY)
+                .hasAddressEqualsTo(STREET, POSTAL_CODE, HOUSE_NUMBER, APARTMENT_NUMBER, CITY, COUNTRY)
                 .hasDescriptionEqualsTo(DESCRIPTION)
                 .hasRoomsEqualsTo(ROOMS_DEFINITION);
     }
 
     @Test
     void should_create_booking_once_booked() {
-        Apartment apartment = ApartmentFactory.create(OWNER_ID, STREET, POSTAL_CODE, HOUSE_NUMBER, APARTMENT_NUMBER, CITY, COUNTRY, DESCRIPTION,
-                ROOMS_DEFINITION);
+        var apartmentDto = new ApartmentDto(OWNER_ID, STREET, POSTAL_CODE, HOUSE_NUMBER, APARTMENT_NUMBER, CITY, COUNTRY, DESCRIPTION, ROOMS_DEFINITION);
+        var apartment = ApartmentFactory.create(apartmentDto);
 
         var actual = apartment.book(TENANT_ID, PERIOD, publisher);
 
@@ -64,12 +65,11 @@ class ApartmentTest {
 
     @Test
     void should_publish_apartment_booked() {
-        Apartment apartment = ApartmentFactory.create(OWNER_ID, STREET, POSTAL_CODE, HOUSE_NUMBER, APARTMENT_NUMBER, CITY, COUNTRY, DESCRIPTION,
-                ROOMS_DEFINITION);
+        var apartmentDto = new ApartmentDto(OWNER_ID, STREET, POSTAL_CODE, HOUSE_NUMBER, APARTMENT_NUMBER, CITY, COUNTRY, DESCRIPTION, ROOMS_DEFINITION);
+        var apartment = ApartmentFactory.create(apartmentDto);
 
         apartment.book(TENANT_ID, PERIOD, publisher);
 
         Mockito.verify(publisher).publish(any(ApartmentBooked.class));
-
     }
 }

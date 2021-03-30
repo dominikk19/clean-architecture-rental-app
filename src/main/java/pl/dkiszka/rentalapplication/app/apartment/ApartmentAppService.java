@@ -2,6 +2,7 @@ package pl.dkiszka.rentalapplication.app.apartment;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.dkiszka.rentalapplication.adapters.rest.api.apartment.ApartmentDto;
 import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 import pl.dkiszka.rentalapplication.domain.apartment.ApartmentFactory;
 import pl.dkiszka.rentalapplication.domain.apartment.ApartmentRepository;
@@ -9,7 +10,6 @@ import pl.dkiszka.rentalapplication.domain.booking.BookingRepository;
 import pl.dkiszka.rentalapplication.domain.booking.Period;
 
 import java.time.LocalDate;
-import java.util.Map;
 
 /**
  * @author Dominik Kiszka {dominikk19}
@@ -24,9 +24,8 @@ public class ApartmentAppService {
     private final BookingRepository bookingRepository;
 
     @SuppressWarnings("checkstyle:ParameterNumber")
-    public void add(String ownerId, String street, String postalCode, String houseNumber, String apartmentNumber, String city, String country,
-                    String description, Map<String, Double> roomsDefinition) {
-        var apartment = new ApartmentFactory().create(ownerId, street, postalCode, houseNumber, apartmentNumber, city, country, description, roomsDefinition);
+    public void add(ApartmentDto apartmentDto) {
+        var apartment = ApartmentFactory.create(apartmentDto);
         apartmentRepository.save(apartment);
     }
 

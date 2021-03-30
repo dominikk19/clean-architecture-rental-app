@@ -1,6 +1,7 @@
 package pl.dkiszka.rentalapplication.domain.apartment;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Embeddable;
@@ -12,6 +13,7 @@ import javax.persistence.Embeddable;
  */
 @Embeddable
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder(access = AccessLevel.PACKAGE)
 class Address {
     private String street;
     private String postalCode;

@@ -5,8 +5,8 @@ package pl.dkiszka.rentalapplication.adapters.persistence.jpa.apartment;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
-class ApartmentNotFoundException extends RuntimeException {
-    ApartmentNotFoundException(String message) {
+public class ApartmentNotFoundException extends RuntimeException {
+    public ApartmentNotFoundException(String message) {
         super(message);
     }
 }

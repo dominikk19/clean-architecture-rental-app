@@ -20,7 +20,7 @@ import java.util.UUID;
  */
 @Entity
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-class HotelRoomBooking {
+class  HotelRoomBooking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

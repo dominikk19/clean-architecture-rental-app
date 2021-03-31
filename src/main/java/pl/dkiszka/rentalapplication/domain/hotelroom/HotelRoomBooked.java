@@ -8,7 +8,6 @@ import pl.dkiszka.rentalapplication.domain.DomainEvent;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * @author Dominik Kiszka {dominikk19}

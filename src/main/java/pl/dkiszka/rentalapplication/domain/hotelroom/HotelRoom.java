@@ -3,7 +3,6 @@ package pl.dkiszka.rentalapplication.domain.hotelroom;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 import pl.dkiszka.rentalapplication.domain.booking.Booking;
 
 import javax.persistence.ElementCollection;

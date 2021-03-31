@@ -2,7 +2,7 @@ package pl.dkiszka.rentalapplication.app.hotel;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.dkiszka.rentalapplication.adapters.rest.api.hotel.HotelDto;
+import pl.dkiszka.rentalapplication.domain.hotel.HotelDto;
 import pl.dkiszka.rentalapplication.domain.hotel.HotelFactory;
 import pl.dkiszka.rentalapplication.domain.hotel.HotelRepository;
 

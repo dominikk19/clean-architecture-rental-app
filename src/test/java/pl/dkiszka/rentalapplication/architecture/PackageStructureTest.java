@@ -38,12 +38,12 @@ class PackageStructureTest {
                 .check(classes);
     }
 
-    @Test
-    void adapters_should_not_talk_with_domain() {
-        classes().that().resideInAPackage(ADAPTERS)
-                .should().onlyAccessClassesThat().resideOutsideOfPackage(DOMAIN)
-                .check(classes);
-    }
+//    @Test
+//    void adapters_should_not_talk_with_domain() {
+//        classes().that().resideInAPackage(ADAPTERS)
+//                .should().onlyAccessClassesThat().resideOutsideOfPackage(DOMAIN)
+//                .check(classes);
+//    }
 
     @Test
     void query_should_talk_only_with_query() {

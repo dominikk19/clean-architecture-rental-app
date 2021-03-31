@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.dkiszka.rentalapplication.app.apartment.ApartmentAppService;
+import pl.dkiszka.rentalapplication.domain.apartment.ApartmentDto;
 import pl.dkiszka.rentalapplication.query.apartment.QueryApartmentRepository;
 import pl.dkiszka.rentalapplication.query.apartment.dto.ApartmentDetailsDto;
 import pl.dkiszka.rentalapplication.query.apartment.dto.ApartmentReadModelDto;

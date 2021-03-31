@@ -2,8 +2,6 @@ package pl.dkiszka.rentalapplication.domain.hotelroom;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import pl.dkiszka.rentalapplication.adapters.rest.api.hotelroom.HotelRoomDto;
-import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 
 import java.time.LocalDate;
 import java.util.List;

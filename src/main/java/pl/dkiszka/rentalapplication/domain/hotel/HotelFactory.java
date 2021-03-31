@@ -1,7 +1,5 @@
 package pl.dkiszka.rentalapplication.domain.hotel;
 
-import pl.dkiszka.rentalapplication.adapters.rest.api.hotel.HotelDto;
-
 import java.util.UUID;
 
 /**

@@ -1,9 +1,7 @@
-package pl.dkiszka.rentalapplication.adapters.rest.api.apartment;
+package pl.dkiszka.rentalapplication.domain.hotel;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-
-import java.util.Map;
 
 /**
  * @author Dominik Kiszka {dominikk19}
@@ -12,14 +10,11 @@ import java.util.Map;
  */
 @RequiredArgsConstructor
 @Getter
-public class ApartmentDto {
-    private final String ownerId;
+public class HotelDto {
+    private final String name;
     private final String street;
     private final String postalCode;
-    private final String houseNumber;
-    private final String apartmentNumber;
+    private final String buildingNumber;
     private final String city;
     private final String country;
-    private final String description;
-    private final Map<String, Double> roomsDefinition;
 }

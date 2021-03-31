@@ -1,7 +1,5 @@
 package pl.dkiszka.rentalapplication.domain.apartment;
 
-import pl.dkiszka.rentalapplication.adapters.rest.api.apartment.ApartmentDto;
-
 import static java.util.stream.Collectors.toList;
 
 /**

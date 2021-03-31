@@ -1,4 +1,4 @@
-package pl.dkiszka.rentalapplication.adapters.rest.api.hotelroom;
+package pl.dkiszka.rentalapplication.domain.hotelroom;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

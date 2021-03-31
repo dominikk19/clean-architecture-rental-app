@@ -1,9 +1,6 @@
 package pl.dkiszka.rentalapplication.domain.hotel;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import pl.dkiszka.rentalapplication.adapters.rest.api.hotel.HotelDto;
-import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 
 /**
  * @author Dominik Kiszka {dominikk19}

@@ -2,7 +2,7 @@ package pl.dkiszka.rentalapplication.app.apartment;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.dkiszka.rentalapplication.adapters.rest.api.apartment.ApartmentDto;
+import pl.dkiszka.rentalapplication.domain.apartment.ApartmentDto;
 import pl.dkiszka.rentalapplication.domain.apartment.ApartmentEventsPublisher;
 import pl.dkiszka.rentalapplication.domain.apartment.ApartmentFactory;
 import pl.dkiszka.rentalapplication.domain.apartment.ApartmentRepository;

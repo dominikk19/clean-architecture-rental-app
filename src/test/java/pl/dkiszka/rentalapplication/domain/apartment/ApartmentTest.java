@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableMap;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import pl.dkiszka.rentalapplication.adapters.rest.api.apartment.ApartmentDto;
 import pl.dkiszka.rentalapplication.domain.booking.Period;
 
 import java.time.LocalDate;

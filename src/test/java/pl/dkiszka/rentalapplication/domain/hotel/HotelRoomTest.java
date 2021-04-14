@@ -1,4 +1,4 @@
-package pl.dkiszka.rentalapplication.domain.hotelroom;
+package pl.dkiszka.rentalapplication.domain.hotel;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

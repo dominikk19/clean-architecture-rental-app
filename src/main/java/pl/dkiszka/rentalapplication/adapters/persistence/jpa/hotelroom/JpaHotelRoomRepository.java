@@ -2,8 +2,8 @@ package pl.dkiszka.rentalapplication.adapters.persistence.jpa.hotelroom;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.repository.Repository;
-import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoom;
-import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoomRepository;
+import pl.dkiszka.rentalapplication.domain.hotel.HotelRoom;
+import pl.dkiszka.rentalapplication.domain.hotel.HotelRoomRepository;
 
 import java.util.Optional;
 

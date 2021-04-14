@@ -3,7 +3,6 @@ package pl.dkiszka.rentalapplication.app.apartmentbookinghistory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.dkiszka.rentalapplication.domain.apartment.ApartmentBooked;
-import pl.dkiszka.rentalapplication.domain.apartmentbookinghistory.ApartmentBooking;
 import pl.dkiszka.rentalapplication.domain.apartmentbookinghistory.ApartmentBookingHistory;
 import pl.dkiszka.rentalapplication.domain.apartmentbookinghistory.ApartmentBookingHistoryRepository;
 import pl.dkiszka.rentalapplication.domain.apartmentbookinghistory.BookingPeriod;
@@ -26,7 +25,8 @@ public class ApartmentBookingHistoryAppService {
                 .orElse(new ApartmentBookingHistory(apartmentBooked.getApartmentId()));
 
         var bookingPeriod = new BookingPeriod(apartmentBooked.getPeriodStart(), apartmentBooked.getPeriodEnd());
-        apartmentBookingHistory.add(ApartmentBooking.start(apartmentBooked.getEventCreationDateTime(), apartmentBooked.getOwnerId(), apartmentBooked.getTenantId(), bookingPeriod));
+
+        apartmentBookingHistory.addBookingStart(apartmentBooked.getEventCreationDateTime(), apartmentBooked.getOwnerId(), apartmentBooked.getTenantId(), bookingPeriod);
         apartmentBookingHistoryRepository.save(apartmentBookingHistory);
     }
 

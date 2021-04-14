@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.dkiszka.rentalapplication.app.hotelroom.HotelRoomAppService;
-import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoomDto;
+import pl.dkiszka.rentalapplication.domain.hotel.HotelRoomDto;
 import pl.dkiszka.rentalapplication.query.hotelroom.QueryHotelRoomRepository;
 import pl.dkiszka.rentalapplication.query.hotelroom.dto.HotelRoomReadModelDto;
 

@@ -3,10 +3,10 @@ package pl.dkiszka.rentalapplication.app.hotelroom;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.dkiszka.rentalapplication.domain.booking.BookingRepository;
-import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoomDto;
-import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoomEventsPublisher;
-import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoomFactory;
-import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoomRepository;
+import pl.dkiszka.rentalapplication.domain.hotel.HotelRoomDto;
+import pl.dkiszka.rentalapplication.domain.hotel.HotelRoomEventsPublisher;
+import pl.dkiszka.rentalapplication.domain.hotel.HotelRoomFactory;
+import pl.dkiszka.rentalapplication.domain.hotel.HotelRoomRepository;
 
 import java.time.LocalDate;
 import java.util.List;

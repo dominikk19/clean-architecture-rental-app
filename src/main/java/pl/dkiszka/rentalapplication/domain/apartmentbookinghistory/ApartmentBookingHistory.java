@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -34,5 +35,9 @@ public class ApartmentBookingHistory {
 
     public void add(ApartmentBooking apartmentBooking) {
         bookings.add(apartmentBooking);
+    }
+
+    public void addBookingStart(LocalDateTime eventCreationDateTime, String ownerId, String tenantId, BookingPeriod bookingPeriod) {
+        bookings.add(ApartmentBooking.start(eventCreationDateTime, ownerId, tenantId, bookingPeriod));
     }
 }

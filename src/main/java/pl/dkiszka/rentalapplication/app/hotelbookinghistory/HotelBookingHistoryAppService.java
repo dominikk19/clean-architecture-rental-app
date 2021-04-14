@@ -2,9 +2,9 @@ package pl.dkiszka.rentalapplication.app.hotelbookinghistory;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.dkiszka.rentalapplication.domain.hotel.HotelRoomBooked;
 import pl.dkiszka.rentalapplication.domain.hotelbookinghistory.HotelBookingHistory;
 import pl.dkiszka.rentalapplication.domain.hotelbookinghistory.HotelBookingHistoryRepository;
-import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoomBooked;
 
 /**
  * @author Dominik Kiszka {dominikk19}

@@ -1,4 +1,4 @@
-package pl.dkiszka.rentalapplication.domain.hotelroom;
+package pl.dkiszka.rentalapplication.domain.hotel;
 
 import lombok.RequiredArgsConstructor;
 import pl.dkiszka.rentalapplication.domain.DomainEventChannel;

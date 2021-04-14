@@ -4,7 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import pl.dkiszka.rentalapplication.domain.DomainEventChannel;
 import pl.dkiszka.rentalapplication.domain.events.EventUuidFactory;
-import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoomEventsPublisher;
+import pl.dkiszka.rentalapplication.domain.hotel.HotelRoomEventsPublisher;
+
 
 /**
  * @author Dominik Kiszka {dominikk19}

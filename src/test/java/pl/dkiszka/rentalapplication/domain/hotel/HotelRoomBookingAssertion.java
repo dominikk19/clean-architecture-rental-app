@@ -1,4 +1,4 @@
-package pl.dkiszka.rentalapplication.domain.hotelroom;
+package pl.dkiszka.rentalapplication.domain.hotel;
 
 import lombok.RequiredArgsConstructor;
 import org.assertj.core.api.Assertions;

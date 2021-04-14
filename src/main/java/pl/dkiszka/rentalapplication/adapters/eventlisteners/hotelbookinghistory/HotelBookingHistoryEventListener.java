@@ -3,7 +3,7 @@ package pl.dkiszka.rentalapplication.adapters.eventlisteners.hotelbookinghistory
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.event.EventListener;
 import pl.dkiszka.rentalapplication.app.hotelbookinghistory.HotelBookingHistoryAppService;
-import pl.dkiszka.rentalapplication.domain.hotelroom.HotelRoomBooked;
+import pl.dkiszka.rentalapplication.domain.hotel.HotelRoomBooked;
 
 /**
  * @author Dominik Kiszka {dominikk19}

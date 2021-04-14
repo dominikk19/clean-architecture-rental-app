@@ -1,6 +1,7 @@
 package pl.dkiszka.rentalapplication.adapters.rest.api.hotel;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +12,7 @@ import pl.dkiszka.rentalapplication.domain.hotel.HotelDto;
 import pl.dkiszka.rentalapplication.query.hotel.QueryHotelRepository;
 import pl.dkiszka.rentalapplication.query.hotel.dto.HotelReadModelDto;
 
+import java.net.URI;
 import java.util.List;
 
 /**
@@ -27,8 +29,11 @@ class HotelRestController {
     private final QueryHotelRepository queryHotelRepository;
 
     @PostMapping
-    void add(@RequestBody HotelDto hotelDto) {
-        hotelAppService.add(hotelDto);
+    ResponseEntity<Void> add(@RequestBody HotelDto hotelDto) {
+        var uuid = hotelAppService.add(hotelDto);
+        return ResponseEntity
+                .created(URI.create("/hotel/".concat(uuid)))
+                .build();
     }
 
     @GetMapping

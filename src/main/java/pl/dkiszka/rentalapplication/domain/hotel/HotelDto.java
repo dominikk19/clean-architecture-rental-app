@@ -1,6 +1,8 @@
 package pl.dkiszka.rentalapplication.domain.hotel;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -8,13 +10,14 @@ import lombok.RequiredArgsConstructor;
  * @project clean-architecture-rental-app
  * @date 19.03.2021
  */
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 public class HotelDto {
-    private final String name;
-    private final String street;
-    private final String postalCode;
-    private final String buildingNumber;
-    private final String city;
-    private final String country;
+    private String name;
+    private String street;
+    private String postalCode;
+    private String buildingNumber;
+    private String city;
+    private String country;
 }

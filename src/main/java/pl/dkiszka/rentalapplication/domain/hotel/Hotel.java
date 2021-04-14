@@ -1,6 +1,7 @@
 package pl.dkiszka.rentalapplication.domain.hotel;
 
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Embedded;
@@ -18,11 +19,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "HOTEL")
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Hotel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
+
+    @EqualsAndHashCode.Include
     private String uuid;
     private String name;
 
@@ -33,5 +37,9 @@ public class Hotel {
         this.uuid = uuid;
         this.name = name;
         this.address = address;
+    }
+
+    public String uuid(){
+        return uuid;
     }
 }

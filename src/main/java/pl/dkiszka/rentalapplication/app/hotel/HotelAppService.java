@@ -17,8 +17,8 @@ public class HotelAppService {
 
     private final HotelRepository hotelRepository;
 
-    public void add(HotelDto hotelDto) {
+    public String add(HotelDto hotelDto) {
         var hotel = HotelFactory.create(hotelDto);
-        hotelRepository.save(hotel);
+        return hotelRepository.save(hotel).uuid();
     }
 }
